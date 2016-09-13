@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+<head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/my_main.css">
+
+    <link rel="stylesheet" type="text/css" href="DateBox/css/jtsage-datebox.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+
+    <!--link the themeroller-->
+    <link rel="stylesheet" href="themes/blueGreen.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+
+    <script src="jQuery/jquery-1.12.0.js"></script>
+    <script src="jQuery/jquery.mobile-1.4.5.js"></script>
+    <script src="DateBox/js/jtsage-datebox.min.js"></script>
+
+
+    <!--<link href="jquery-mobile/jquery.mobile-1.1.0.min.css" rel="stylesheet" type="text/css"/>-->
+    <!--<script src="jquery-mobile/jquery-1.7.2.min.js" type="text/javascript"></script>-->
+    <!--<script src="jquery-mobile/jquery.mobile-1.1.0.min.js" type="text/javascript"></script>-->
+
+    <title>Prototype</title>
+</head>
+<body id="CarsEzyBody">
+
+
+
+<div data-role="page" id="page8"><!--Start page-->
+    <div data-role="header">
+        <!--<a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>-->
+        <h1>Cars Ezy Registration</h1>
+    </div>
+    <div data-role="content">
+
+        <b>Enter registration details</b>
+
+        <!--text input First name -->
+        <div data-role="fieldcontain">
+            <label for="txtRegisterFirstname">First name *</label>
+            <input type="text" name="txtRegisterFirstname" id="txtRegisterFirstname" value="Kir"  />
+        </div>
+
+        <!--text input Last name -->
+        <div data-role="fieldcontain">
+            <label for="txtRegisterLastname">Last name *</label>
+            <input type="text" name="txtRegisterLastname" id="txtRegisterLastname" value="Nie"  />
+        </div>
+
+        <!--number input Licence no -->
+        <div data-role="fieldcontain">
+            <label for="txtRegisterLicence">Licence no (9 digits) *</label>
+            <input type="number" name="txtRegisterLicence" id="txtRegisterLicence" value="123456789"  />
+        </div>
+
+        <!--text input Email -->
+        <div data-role="fieldcontain">
+            <label for="txtRegisterEmail">Email (used as username) *</label>
+            <input type="email" name="txtRegisterEmail" id="txtRegisterEmail" value="m@m"  />
+        </div>
+
+        <!--number input Mobile -->
+        <div data-role="fieldcontain">
+            <label for="txtRegisterMobile">Mobile (10 digits) *</label>
+            <input type="number" name="txtRegisterMobile" id="txtRegisterMobile" value="1234567890"  />
+        </div>
+
+        <!--text input Password test with mypass-->
+        <div data-role="fieldcontain">
+            <label for="txtRegisterPassword">Password (min 3 chars, no space) *</label>
+            <input type="password" name="txtRegisterPassword" id="txtRegisterPassword" value="mypass"  />
+        </div>
+
+        <input id="btnSubmitRegisterProfile" type="button" value="Register">
+    </div>
+</div><!--End page-->
+
+
+
+<div data-role="page" id="homepage"><!--Start page-->
+    <div data-role="header">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1 id='idh'>Cars Ezy</h1>
+    </div>
+
+    <div data-role="content">
+        <!--datebox-->
+        <label for="datePickUp">Pick up</label>
+        <input type="text" data-role="datebox" data-options='{"mode":"datebox"}' name="datePickUp" id="datePickUp">
+
+        <!--datebox-->
+        <label for="dateDropOff">Drop off</label>
+        <input type="text" data-role="datebox" data-options='{"mode":"datebox"}' name="dateDropOff" id="dateDropOff">
+
+        <!--drop down-->
+        <div data-role="fieldcontain">
+            <label for="selSuburb" class="select">Select Suburb</label>
+            <select name="selSuburb" id="selSuburb">
+                <!--here goes what is build in js file-->
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+        </div>
+
+        <input id="btnSearchCar" type="button" value="Search">
+
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h4>Kirstine Nielsen 100527988</h4>
+    </div>
+</div><!--End page-->
+
+
+
+<div data-role="page" id="page1" ><!--Start page-->
+    <div data-role="header" data-position="fixed">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1>Cars Ezy Available</h1>
+    </div>
+    <div data-role="content">
+        Available cars at: Some_Suburb
+        <br/>
+        <br/>
+        Select row
+        <br/>
+        <br/>
+
+        <table data-role="table" data-mode="columntoggle" class="ui-responsive" id="carsAvailableTable">
+
+            <thead>
+            <tr>
+                <th>Brand</th>
+                <th data-priority="1">Seat</th>
+                <th data-priority="1">$/day</th>
+                <th data-priority="1">Street</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class='clickable-row'>
+                <td>Toyota</td>
+                <td>3</td>
+                <td>75.00</td>
+                <td>Auburn rd</td>
+            </tr>
+            <tr class='clickable-row'>
+                <td>Toyota</td>
+                <td>5</td>
+                <td>95.00</td>
+                <td>Auburn rd</td>
+            </tr>
+            <tr class='clickable-row'>
+                <td>Toyota</td>
+                <td>5</td>
+                <td>105.00</td>
+                <td>Auburn rd</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div><!--End page-->
+
+<div data-role="page" id="page2"><!--Start page-->
+    <div data-role="header">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1>Cars Ezy Confirm</h1>
+    </div>
+    <div data-role="content">
+
+        <table data-role="table" data-mode="columntoggle" class="ui-responsive" >
+            <thead>
+            <tr>
+                <th data-priority="1">What and Where</th>
+                <th>Your Booking details</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Pick up</td>
+                <td>2016-08-10</td>
+            </tr>
+            <tr>
+                <td>Drop off</td>
+                <td>2016-08-12</td>
+            </tr>
+            <tr>
+                <td>Suburb</td>
+                <td>Hawthorn</td>
+            </tr>
+            <tr>
+                <td>Street</td>
+                <td>Auburn rd</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>Corner of Auburn rd and Wattletree rd</td>
+            </tr>
+            <tr>
+                <td>Rego no</td>
+                <td>ZJR161</td>
+            </tr>
+            <tr>
+                <td>Brand</td>
+                <td>Toyota</td>
+            </tr>
+            <tr>
+                <td>Seating</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>$95.00</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <input id="btnConfirmCarHire" type="button" value="Confirm">
+
+    </div>
+</div><!--End page-->
+
+<div data-role="page" id="page3"><!--Start page-->
+
+    <div data-role="header">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1>Cars Ezy My Bookings</h1>
+    </div>
+    <div data-role="content">
+        Click row for more details:
+
+        <table data-role="table" data-mode="columntoggle" class="ui-responsive" id="myBookingsTable">
+
+            <thead>
+            <tr>
+                <th>Pickup</th>
+                <th data-priority="1">Drop off</th>
+                <th data-priority="1">RegoNo</th>
+                <th data-priority="1">Seat</th>
+                <th data-priority="1">$/day</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class='clickable-row'>
+                <td>2016-08-10</td>
+                <td>2016-08-12</td>
+                <td>ZJR161</td>
+                <td>4</td>
+                <td>95.00</td>
+            </tr>
+            <tr class='clickable-row'>
+                <td>2015-04-02</td>
+                <td>2015-04-12</td>
+                <td>BGG165</td>
+                <td>3</td>
+                <td>75.00</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div><!--End page-->
+
+<div data-role="page" id="page4"><!--Start page-->
+    <div data-role="header">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1>Cars Ezy Drop Off</h1>
+    </div>
+    <div data-role="content">
+        Drop off Car: TGF349<br/>
+
+        <!--number input Odometer-->
+        <div data-role="fieldcontain">
+            <label for="txtOdomFinish">Odometer *</label>
+            <input type="number" name="txtOdomFinish" id="txtOdomFinish" value=""  />
+        </div>
+
+        <!--check box Full Tank-->
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <input type="checkbox" name="chkFullTank" id="chkFullTank" class="custom"  value=""/>
+                <label for="chkFullTank">I return car with full tank</label>
+            </fieldset>
+        </div>
+
+        <input id="btnDropOffCar" type="button" value="Return Car">
+
+
+    </div>
+</div><!--End page-->
+
+
+<div data-role="page" id="page5"><!--Start page-->
+    <div data-role="header">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1>Cars Ezy Brands</h1>
+    </div>
+    <div data-role="content">
+        Brands at Cars Ezy:<br/><br/>
+        Ford<br/>
+        Holden<br/>
+        Nissan<br/>
+        Subaru<br/>
+        Toyota<br/>
+    </div>
+</div><!--End page-->
+
+
+<div data-role="page" id="page6"><!--Start page-->
+    <div data-role="header">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1>Cars Ezy My Profile</h1>
+    </div>
+    <div data-role="content">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <p>First name</p>
+                <p>Last name</p>
+                <p>Licence no</p>
+                <p>Email</p>
+                <p>Mobile</p>
+            </div>
+
+            <div class="ui-block-b" id="profileCustomerDetails">
+                <!--generate dynamically-->
+            </div>
+        </div>
+
+        <input id="btnEditProfile" type="button" value="Edit">
+
+    </div>
+</div><!--End page-->
+
+<div data-role="page" id="page7"><!--Start page-->
+    <div data-role="header">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1>Cars Ezy Edit Profile</h1>
+    </div>
+    <div data-role="content">
+        Edit Profile details
+
+        <!--number input Mobile -->
+        <div data-role="fieldcontain">
+            <label for="txtEditMobile">Mobile (10 digits) *</label>
+            <input type="number" name="txtEditMobile" id="txtEditMobile" value=""  />
+        </div>
+
+        <!--password-->
+        <div data-role="fieldcontain">
+            <label for="pwdPasswordProve">Current password *</label>
+            <input type="password" name="pwdPasswordProve" id="pwdPasswordProve" value=""  />
+        </div>
+
+        <!--new password once-->
+        <div data-role="fieldcontain">
+            <label for="pwdPasswordNew1">New password (no spaces)</label>
+            <input type="password" name="pwdPasswordNew1" id="pwdPasswordNew1" value=""  />
+        </div>
+
+        <!--new password twice-->
+        <div data-role="fieldcontain">
+            <label for="pwdPasswordNew2">Repeat new password (no spaces)</label>
+            <input type="password" name="pwdPasswordNew2" id="pwdPasswordNew2" value=""  />
+        </div>
+        <input id="btnSubmitChangesProfile" type="button" value="Submit changes">
+
+    </div>
+</div><!--End page-->
+
+
+
+
+
+
+<div data-role="page" id="page9"><!--Start page-->
+    <div data-role="header">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1>PAGE</h1>
+    </div>
+    <div data-role="content">
+        CONTENT
+    </div>
+</div><!--End page-->
+
+<div data-role="page" id="page10"><!--Start page-->
+    <div data-role="header">
+        <a href="#mypanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+        <h1>PAGE</h1>
+    </div>
+    <div data-role="content">
+        CONTENT
+    </div>
+</div><!--End page-->
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script src="js/main.js"></script><!--Main js Scripts-->
+</body>
+</html>
